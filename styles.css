@@ -8,14 +8,30 @@ header {
     background-color: #333;
     color: white;
     padding: 1rem;
-    text-align: center;
+    text-align:center;
     
+}
+p{
+    font-family: 'Lato', sans-serif;
 }
 nav {
     margin: 1rem 0;
+    background-color: lightgrey ;
+    color: white;
+    padding: 20px 50px;
+}
+.navTop{
+    display: flex;
+    align-items:end;
+}
+.menuItem{
+    margin-right: 50px;
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
 }
 nav a {
-    color: white;
+    color: black;
     margin: 0 15px;
     text-decoration: none;
 }
@@ -43,3 +59,83 @@ footer {
     max-width: 100%;
     height: auto;
 }
+h1 {
+    text-align: center;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.product-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.product-card p {
+    color: #666;
+    margin: 5px 0;
+}
+.product-card .price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+/*.product-card button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.product-card button:hover {
+    background-color: #218838;
+
+}
+    */
+footer{
+    background-color: lightgray;
+    font-family: 'Lato', sans-serif;
+    color: black;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.css-button-3d--black {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #343a40;
+    box-shadow: 0 5px #212529;
+  }
+  .css-button-3d--black:hover {
+    box-shadow: 0 3px #212529;
+    top: 1px;
+  }
+  .css-button-3d--black:active {
+    box-shadow: 0 0 #212529;
+    top: 5px;
+  }
