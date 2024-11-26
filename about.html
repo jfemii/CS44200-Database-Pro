@@ -6,99 +6,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Online Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to external CSS -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav {
-            margin: 1rem 0;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        main {
-            padding: 1rem;
-            background-color: white;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        .product {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .product img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Designs For You</h1>
-        <nav>
-        <ul>
-            <a href="#home">Home</a>
-            <a href="products.html">Products</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
-    </ul>
-    <ul class="right">
-            <a href="#contact">Cart</a>
-    </ul>
-        </nav>
-    </header>
+    <nav>
+        <div class="navTop">
+            <div class=" navItem">
+                <a href="index.html"><img src ="img/logo 2.png" alt="" width="200" height="200"></a>
+            </div>
+            <div class="navItem">
+                <div></div>
+            </div>
+        </div>
+        <div class ="navBottom">
+            <div class= "menuItem"><a href="index.html">Home</a></div>
+            <div class= "menuItem"><a href="products.html">Products</a></div>
+            <div class= "menuItem"><a href="about.html">About Us</a></div>
+            <div class= "menuItem"><a href="contact.html">Contact</a></div>
+            <div class= "menuItem"><a href="contact.html">Cart</a></div>
 
-    <main>
-        <h1><center>About Us</center></h2>
-        <div class="product">
-            <img src="Shirt Design.jpg" alt="Custom Shirt">
-            <h3>Custom Rounded Shirt</h3>
-            <p>A Well Blended Cotton Shirt With A Design Of Your Choosing.</p>
-            <p>Price: $19.99</p>
-            <button>Add to Cart</button>
+
         </div>
-        <div class="product">
-            <img src="IPhone Design.jpg" alt="Custom Phone Case">
-            <h3>Custom IPhone Case</h3>
-            <p>A Durable and Unique Plastic Case To Protect Your IPhone.</p>
-            <p>Price: $29.99</p>
-            <button>Add to Cart</button>
+    </nav>
+
+    <p><h1 style="align-content: center; color: white;">About Us</h1></p>
+    <p style= "justify-content: center; align-self: center; color: white; display: flex; margin: 15px; line-height: 2; padding: 15px; font-weight: 600;">Designs For You is a passion project started by four students 
+        from Purdue University Northwest. We wanted to create a platform where people could express themselves through custom products and through our designs our team has currated 
+        and we believe we have done just that. We hope you enjoy our products and we are always open to feedback.
+    </p>
+
+    
+
+    <div class ="features">
+        <div class = "feature">
+           <img class = "featureIcon" src="img/undraw_web_shopping_re_owap.png" alt="">
+            <span class = "featureTitle">FAST SHIPPING!</span>
+            <span class = featureDescription>Guranteed delivery of your product to your door in less than a week.</span>
         </div>
-        <div class="product">
-            <img src="Wallpaper Custom.jpg" alt="Custom Wall Canvas">
-            <h3>Custom Wall Decal</h3>
-            <p>Add Some Flavor To A Room With One Of Our Custom Vinyl Wall Decals</p>
-            <p>Price: $39.99</p>
-            <button>Add to Cart</button>
+        <div class = "feature">
+            <a href="contact.html"><img class= "featureIcon" src="img/undraw_Active_support_re_b7sj.png" alt=""></a>
+            <span class = "featureTitle">24/7 SUPPORT!</span>
+            <span class = featureDescription>Our support team can be reached anytime through an email request.</span>
         </div>
-    </main>
+        <div class = "feature">
+            <a href="about.html"><img class ="featureIcon" src="img/undraw_About_us_page_re_2jfm.png" alt=""></a>
+            <span class = "featureTitle">ABOUT US!</span>
+            <span class = featureDescription>Learn more about the people that create the final product.</span>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2024 Designs For You. All rights reserved.</p>
     </footer>
+    <script src="app.js"></script>
 
 </body>
 </html>

@@ -86,6 +86,7 @@ h1 {
     display: grid;
     justify-content: center;
     align-items: center;
+    font-family: 'Lato', sans-serif;
     
     
 
@@ -122,6 +123,7 @@ h1 {
 }
 .product-h1{
     color: white;
+    font-family: 'Lato', sans-serif;
 }
 /*.product-card button {
     background-color: #28a745;
