@@ -21,6 +21,14 @@ const colors = [
     { label: 'Black', color: 'black' },
 ];
 
+const sizes = [
+    { label: 'Small', size: 'S' },
+    { label: 'Medium', size: 'M' },
+    { label: 'Large', size: 'L' },
+    { label: 'Extra Large', size: 'XL' }
+];
+
+
 const ProductCustomizer = ({ title, description, price, imgSrc }) => {
     const { addToCart } = useContext(CartContext); // Use addToCart from context
     const [quantity, setQuantity] = useState(1);
@@ -29,6 +37,7 @@ const ProductCustomizer = ({ title, description, price, imgSrc }) => {
     const [selectedColor, setSelectedColor] = useState(colors[0].color);
     const [selectedOption, setSelectedOption] = useState(options[0]);
     const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+    const [selectedSize, setSelectedSize] = useState(sizes[0].size);
 
     useEffect(() => {
         setShow(true);
@@ -66,6 +75,9 @@ const ProductCustomizer = ({ title, description, price, imgSrc }) => {
             setShowPopup(false);
         }, 3000);
     };
+    const handleSizeChange = (size) => {
+        setSelectedSize(size);
+    }
 
     const showClass = show ? 'container show' : 'container';
 
@@ -102,7 +114,23 @@ const ProductCustomizer = ({ title, description, price, imgSrc }) => {
                         ))}
                     </div>
                 </div>
+                {(title === 'Cotton Round Shirt' || title === 'Cotton Hoodie') && (
+                    <>
+                        <h3>Select Size</h3>
+                        <div className="options">
+                            {sizes.map((sizeOption, index) => (
+                                <button
+                                    key={index}
+                                    className={`option-button ${selectedSize === sizeOption.size ? 'selected' : ''}`}
+                                    onClick={() => handleSizeChange(sizeOption.size)}
+                                >
+                                    {sizeOption.label}
+                                </button>
+                            ))}
+                        </div>
 
+                    </>
+                )}
                 {/* Quantity Control */}
                 <div className="quantity-control">
                     <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>

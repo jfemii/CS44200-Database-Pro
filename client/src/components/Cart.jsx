@@ -9,9 +9,11 @@ const Cart = () => {
     return (
         <div className="cart-page">
             <Navbar />
-            <h1 className="cart-header">Your cart</h1>
+            <h1 className="cart-header" style={{color: 'white'}}>Your cart</h1>
             {cartItems.length === 0 ? (
-                <p className="empty-cart">Your cart is empty</p> // Message when no items in the cart
+                <div style={{justifyContent: 'center', alignContent: 'center'}}>
+                <p className="empty-cart" style={{color: 'white', justifyContent: 'center'}}>Your cart is empty</p>
+                </div> // Message when no items in the cart
             ) : (
                 <div className="cart-items">
                     {cartItems.map((item, index) => (
@@ -25,7 +27,7 @@ const Cart = () => {
                                 <p>Color: {item.color}</p>
                                 <p>Design: {item.label}</p>
                                 <p>Quantity: {item.quantity}</p>
-                                <p>Price: ${item.price}</p>
+                                <p>Price: {item.price}</p>
                                 <button onClick={() => removeFromCart(index)}>Remove</button> {/* Remove item from cart */}
                             </div>
                         </div>
