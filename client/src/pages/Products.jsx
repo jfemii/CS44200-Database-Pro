@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+// Products.jsx
+import React, { useState, useEffect, useContext } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 import ProductCustomizer from '../components/ProductCustomizer';
 import '../styles.css';
+import { CartContext } from '../components/CartContext';
 import shirt_white_1 from '../img/shirt stock.jpg';
 import pcase from '../img/Phone case.jpg';
 import canvas from '../img/canvas blank.jpg';
@@ -16,13 +18,12 @@ const products = [
     { imgSrc: hoodie, title: "Cotton Hoodie", description: "Always Stay Warm With Our Double Layer Cotton Hoodies!", price: "$34.99" }
 ];
 
-const Our_Products = "Our Products";
-const currentProduct = "Current Product";
-
 const Products = () => {
     const [selectedProductIndex, setSelectedProductIndex] = useState(null);
     const [showGrid, setShowGrid] = useState(false);
     const [showCustomizer, setShowCustomizer] = useState(true);
+
+    const { addToCart } = useContext(CartContext); // Using CartContext
 
     useEffect(() => {
         setShowGrid(true);
@@ -38,7 +39,12 @@ const Products = () => {
         setTimeout(() => {
             setSelectedProductIndex(null);
             setShowGrid(true);
-        }, 500); // Match the transition duration
+        }, 500);
+    };
+
+    const handleAddToCartFromProductCard = (product) => {
+        console.log('Adding to cart:', product); // Debugging
+        addToCart(product); // Adding to the cart via context
     };
 
     const containerClass = selectedProductIndex === null ? `product-grid ${showGrid ? 'show' : ''}` : "body_temp";
@@ -46,7 +52,7 @@ const Products = () => {
     return (
         <div>
             <Navbar />
-            <h1 className="product-h1">{selectedProductIndex === null ? Our_Products : currentProduct}</h1>
+            <h1 className="product-h1">{selectedProductIndex === null ? "Our Products" : "Current Product"}</h1>
             <div className={containerClass} style={{ justifyContent: 'center' }}>
                 {selectedProductIndex === null ? (
                     products.map((product, index) => (
@@ -56,8 +62,8 @@ const Products = () => {
                                 title={product.title} 
                                 description={product.description} 
                                 price={product.price} 
-                                onCustomize={() => handleShowProduct(index)}
-                                isSelected={false}
+                                onCustomize={() => handleShowProduct(index)} 
+                                onAddToCart={() => handleAddToCartFromProductCard(product)}  // Correctly pass onAddToCart
                             />
                         </div>
                     ))
@@ -67,9 +73,7 @@ const Products = () => {
                         title={products[selectedProductIndex].title} 
                         description={products[selectedProductIndex].description} 
                         price={products[selectedProductIndex].price} 
-                        onCustomize={handleShowAllProducts}
-                        isSelected={true}
-                        className={showCustomizer ? 'show' : ''}
+                        onCustomize={handleShowAllProducts} 
                     />
                 )}
             </div>

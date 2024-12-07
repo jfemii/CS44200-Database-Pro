@@ -2,44 +2,39 @@ body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
-    /*background-color: #f4f4f4;*/
     background-color: #abb39c;
-    /*background-color: #abb39c;*/
 }
 header {
     background-color: #333;
     color: white;
     padding: 1rem;
-    text-align:center;
-    
+    text-align: center;
 }
-p{
+p {
     font-family: 'Lato', sans-serif;
 }
 nav {
     margin: 1rem 0;
-    background-color: #abb39c ;
+    background-color: #abb39c;
     color: white;
     padding: 20px 50px;
 }
-.navTop{
+.navTop {
     display: flex;
-    align-items:end;
+    align-items: end;
     justify-content: center;
 }
-.navItem{
+.navItem {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.menuItem{
-    
+.menuItem {
     cursor: pointer;
     color: black;
     justify-content: center;
     align-items: center;
     display: flex;
-    
     font-weight: 600;
 }
 nav a {
@@ -92,17 +87,13 @@ h1 {
     opacity: 1;
     transform: scale(1);
 }
-.products-body{
+.products-body {
     display: grid;
     justify-content: center;
     align-items: center;
     font-family: 'Lato', sans-serif;
     transition: all 2s;
-    
-    
-
 }
-    
 .product-card {
     background-color: white;
     border: 1px solid #ddd;
@@ -122,7 +113,6 @@ h1 {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    
 }
 .product-card h2 {
     font-size: 18px;
@@ -139,12 +129,11 @@ h1 {
     margin: 10px 0;
     color: #aab39c;
 }
-.product-h1{
+.product-h1 {
     color: white;
     font-family: 'Lato', sans-serif;
 }
-
-footer{
+footer {
     background-color: #abb39c;
     font-family: 'Lato', sans-serif;
     color: white;
@@ -166,49 +155,48 @@ footer{
     border: none;
     background: #aab39c;
     box-shadow: 0 5px #a0a992;
-  }
-  .css-button-3d--green:hover {
+}
+.css-button-3d--green:hover {
     box-shadow: 0 3px #aab39c;
     top: 1px;
-  }
-  .css-button-3d--green:active {
+}
+.css-button-3d--green:active {
     box-shadow: 0 0 #aab39c;
     top: 5px;
-  }
-  .features{
+}
+.features {
     display: flex;
     align-items: center;
-    justify-content:space-between
-    
-  }
-  .feature{
+    justify-content: space-between;
+}
+.feature {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-  .featureTitle{
+}
+.featureTitle {
     font-size: 20px;
     font-weight: 600;
     margin: 20px;
     color: white;
-  }
-  .featureDescription{
+}
+.featureDescription {
     color: white;
     width: 50%;
     height: 100px;
-  }
-  .featureIcon{
+}
+.featureIcon {
     width: 200px;
     height: 200px;
-  }
-  .single-product-container {
+}
+.single-product-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     min-height: 50vh;
-    min-width: 91vh /* Adjust as needed to center vertically */
+    min-width: 91vh /* Adjust as needed to center vertically */;
 }
 .product-card.enlarged {
     width: 100%; /* Adjust the width as needed */
@@ -226,10 +214,9 @@ footer{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    justify-content: flex-start
-    
+    justify-content: flex-start;
 }
-.body_temp{
+.body_temp {
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
@@ -256,12 +243,10 @@ footer{
     transform: scale(0.95); /* Start with a slight scale down */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
 }
-
 .container.show {
     opacity: 1; /* Fade in */
     transform: scale(1); /* Scale to normal size */
 }
-
 .container img {
     width: 50%; /* Adjust the size of the image */
     height: 50%;
@@ -295,96 +280,268 @@ footer{
     justify-content: center;
     border-radius: 8px;
 }
-
-
-
 .option-buttons {
-  background-color: rgba(51, 51, 51, 0.05);
-  border-radius: 8px;
-  border-width: 0;
-  color: #333333;
-  cursor: pointer;
-  display: flex;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  list-style: none;
-  margin: 0;
-  
-  padding: 10px 12px;
-  text-align: center;
-  transition: all 200ms;
-  vertical-align: baseline;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.container-test{
-    display: flex; /* Enables Flexbox for layout */
-    align-items: center; /* Aligns content vertically */
-    justify-content: center; /* Aligns content horizontally */
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 0px;
-    height: 80%;
-    width: 80%; /* Increased width to accommodate the image */
-    text-align: left; /* Ensures text aligns to the left */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.cart-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cart-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    background-color: rgba(51, 51, 51, 0.05);
     border-radius: 10px;
-    width: 80%;
-    background-color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 20px;
+    border-radius: 8px;
 }
 
-.cart-item-image {
-    width: 150px; /* Adjust the width as needed */
-    height: auto;
-}
-
-.cart-item-details {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.cart-item-details h2 {
-    font-size: 1.5em;
-    margin: 10px 0;
-}
-
-.cart-item-details .price {
-    font-size: 1.2em;
+.cart-summary h3 {
+    font-size: 24px;
+    font-weight: 600;
     color: #333;
-    margin: 10px 0;
 }
 
-.css-button-3d--green {
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #4CAF50;
+.cart-summary button {
+    font-weight: bold;
+}
+/* style.css */
+
+/* Cart page styles */
+
+/* General product grid styling */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.product-grid.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Product card styling */
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.product-card.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #aab39c;
+}
+
+.product-card p {
+    color: #aab39c;
+    margin: 5px 0;
+}
+
+.product-card .price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #aab39c;
+}
+
+/* Cart summary section */
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.cart-summary h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.cart-summary button {
+    font-weight: bold;
+    background-color: #aab39c;
     color: white;
     border: none;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.css-button-3d--green:hover {
+.cart-summary button:hover {
     background-color: #45a049;
 }
+
+/* Cart button 3D style */
+.css-button-3d--green {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #aab39c;
+    box-shadow: 0 5px #a0a992;
+}
+
+.css-button-3d--green:hover {
+    box-shadow: 0 3px #aab39c;
+    top: 1px;
+}
+
+.css-button-3d--green:active {
+    box-shadow: 0 0 #aab39c;
+    top: 5px;
+}
+/* Cart Item Styling */
+.cart-item {
+    display: flex;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Image Styling */
+.cart-item .item-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Item Details Styling */
+.cart-item .item-details {
+    flex: 1;
+}
+
+.cart-item h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Remove Button Styling */
+.cart-item button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #d32f2f;
+}
+/* Quantity Control */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.quantity-control button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+.quantity-control button:hover {
+    background-color: #45a049;
+}
+
+.quantity-control span {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+/* Add a selected state styling to the buttons */
+.quantity-control button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+/* Add to Cart Button */
+.css-button-3d--green {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 12px 24px; /* Space inside the button */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Larger font size */
+    font-weight: bold;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 20px; /* Space above the button */
+    display: inline-block; /* Makes it inline with other elements */
+    text-align: center;
+}
+
+.css-button-3d--green:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.css-button-3d--green:active {
+    background-color: #3e8e41; /* Even darker green when clicked */
+    transform: scale(0.98); /* Slightly shrink the button when clicked */
+}
+
+.css-button-3d--green:focus {
+    outline: none; /* Remove outline when button is focused */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.6); /* Add glow effect */
+}
+

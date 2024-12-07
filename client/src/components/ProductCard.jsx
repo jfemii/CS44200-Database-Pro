@@ -8,6 +8,8 @@ const ProductCard = ({ imgSrc, title, description, price, onCustomize, isSelecte
         <p>{description}</p>
         <div className="price">{price}</div>
         {!isSelected && <button className="css-button-3d--green" onClick={onCustomize}>Customize!</button>}
+        
+
     </div>
 );
 
