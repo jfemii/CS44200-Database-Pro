@@ -1,3 +1,6 @@
+import React, { useState, useContext } from 'react';
+import { CartContext } from './CartContext';
+
 import wShirt1 from '../img/White Design 1 Shirt.jpg';
 import wShirt2 from '../img/White Design 2 Shirt.jpg';
 import wShirt3 from '../img/White Design 3 Shirt.jpg';
