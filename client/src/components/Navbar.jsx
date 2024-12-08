@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../components/CartContext'; // Import CartContext
+import { CartContext } from './CartContext';
+import { useNavigate } from 'react-router-dom';
 import '../styles.css';
 import logo from '../img/logo 2.png';
 
 const Navbar = () => {
-    const { getTotalItems } = useContext(CartContext); // Use the getTotalItems function to get the count
+    const { getTotalItems } = useContext(CartContext);
+    const navigate = useNavigate();
+    
+    // Check if user is logged in
+    const isLoggedIn = localStorage.getItem('user') !== null;
 
     return (
         <nav>
@@ -18,11 +23,13 @@ const Navbar = () => {
                 <div className="menuItem"><a href="/products">Products</a></div>
                 <div className="menuItem"><a href="/about">About Us</a></div>
                 <div className="menuItem"><a href="/contact">Contact</a></div>
-                <div className="menuItem"><a href="/cart">Cart</a></div>
-                
-                {/* Cart Item Count */}
-                <div className="cart-info">
-                    <a href="/cart">Cart: {getTotalItems()} items</a>
+                <div className="menuItem"><a href="/cart">Cart ({getTotalItems()} items)</a></div>
+                <div className="menuItem">
+                    {isLoggedIn ? (
+                        <a href="/myaccount">My Account</a>
+                    ) : (
+                        <a href="/signin">Sign In</a>
+                    )}
                 </div>
             </div>
         </nav>
