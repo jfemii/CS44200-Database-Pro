@@ -1,9 +1,33 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from './CartContext';
+
 import wShirt1 from '../img/White Design 1 Shirt.jpg';
 import wShirt2 from '../img/White Design 2 Shirt.jpg';
+import wShirt3 from '../img/White Design 3 Shirt.jpg';
 import bShirt1 from '../img/Black Design 1 Shirt.jpg';
 import bShirt2 from '../img/Black Design 2 Shirt.jpg';
+import bShirt3 from '../img/Black Design 3 Shirt.jpg';
+import canvas1 from '../img/Canvas Design 1.jpg';
+import canvas2 from '../img/Canvas Design 2.jpg';
+import canvas3 from '../img/Canvas Design 3.jpg';
+
+// Options and colors
+const options = [
+    { label: 'Clothing Design 1', imgSrc: wShirt1, title: 'Cotton Round Shirt', color: 'White' },
+    { label: 'Clothing Design 2', imgSrc: wShirt2, title: 'Cotton Round Shirt', color: 'White' },
+    { label: 'Clothing Design 3', imgSrc: wShirt3, title: 'Cotton Round Shirt', color: 'White' },
+    { label: 'Clothing Design 1', imgSrc: bShirt1, title: 'Cotton Round Shirt', color: 'Black' },
+    { label: 'Clothing Design 2', imgSrc: bShirt2, title: 'Cotton Round Shirt', color: 'Black' },
+    { label: 'Clothing Design 3', imgSrc: bShirt3, title: 'Cotton Round Shirt', color: 'Black' },
+    { label:'Canvas Design 1', imgSrc: canvas1, title: 'Canvas Portrait', color: 'White' },
+    { label:'Canvas Design 2', imgSrc: canvas2, title: 'Canvas Portrait', color: 'White' },
+    { label:'Canvas Design 3', imgSrc: canvas3, title: 'Canvas Portrait', color: 'White' }
+];
+
+const colors = [
+    { label: 'White', color: 'White' },
+    { label: 'Black', color: 'Black' },
+];
 
 // Mapping of colors to database item_ids
 const TSHIRT_IDS = {
@@ -38,8 +62,8 @@ const ProductCustomizer = ({ product }) => {
             type: 't-shirt'
         };
         addToCart(customizedProduct);
-    };
-
+    }
+;
     return (
         <div className="customizer-container">
             <div className="product-preview">
