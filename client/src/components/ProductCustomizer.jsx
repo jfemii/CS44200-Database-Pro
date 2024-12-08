@@ -7,8 +7,8 @@ import bShirt2 from '../img/Black Design 2 Shirt.jpg';
 
 // Mapping of colors to database item_ids
 const TSHIRT_IDS = {
-    'white': 1,  // ID from Items table for white t-shirt
-    'black': 2   // ID from Items table for black t-shirt
+    'white': 1,  // ID from your Items table for white t-shirt
+    'black': 2   // ID from your Items table for black t-shirt
 };
 
 const ProductCustomizer = ({ product }) => {
@@ -27,7 +27,7 @@ const ProductCustomizer = ({ product }) => {
 
     const handleAddToCart = () => {
         const customizedProduct = {
-            item_id: TSHIRT_IDS[selectedColor], // This will be 1 for white, 2 for black
+            item_id: TSHIRT_IDS[selectedColor],
             title: `Custom ${selectedColor.charAt(0).toUpperCase() + selectedColor.slice(1)} T-Shirt`,
             color: selectedColor,
             design: `Design ${selectedDesign}`,
@@ -47,7 +47,6 @@ const ProductCustomizer = ({ product }) => {
             </div>
             
             <div className="customization-options">
-                {/* Color Selection */}
                 <div className="option-section">
                     <h3>Select Color</h3>
                     <div className="color-options">
@@ -66,7 +65,6 @@ const ProductCustomizer = ({ product }) => {
                     </div>
                 </div>
 
-                {/* Design Selection */}
                 <div className="option-section">
                     <h3>Select Design</h3>
                     <div className="design-options">
@@ -85,7 +83,6 @@ const ProductCustomizer = ({ product }) => {
                     </div>
                 </div>
 
-                {/* Size Selection */}
                 <div className="option-section">
                     <h3>Select Size</h3>
                     <div className="size-options">
