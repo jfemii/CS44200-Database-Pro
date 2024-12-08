@@ -26,6 +26,7 @@ const Cart = () => {
                                 <p>{item.description}</p>
                                 <p>Color: {item.color}</p>
                                 <p>Design: {item.label}</p>
+                                {item.size && <p>Size: {item.size}</p>}
                                 <p>Quantity: {item.quantity}</p>
                                 <p>Price: {item.price}</p>
                                 <button onClick={() => removeFromCart(index)}>Remove</button> {/* Remove item from cart */}
