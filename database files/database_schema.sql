@@ -103,3 +103,18 @@ CREATE TABLE Reviews (
 INSERT INTO ITEMS (item_name, price, design_name, item_type, inventory_count, base_color)
 VALUES ('White T-Shirt', '29.99', 'Base T-Shirt', 't-shirt', 100, 'white'),
 ('Black T-Shirt', '29.99', 'Base T-Shirt', 't-shirt', 100,'black');
+
+
+INSERT INTO Items (item_name, price, design_name, item_type, base_color, inventory_count) VALUES
+('Canvas Landscape 24x18', 34.99, 'Canvas Landscape', 'canvas-painting', 'white', 100),
+('Canvas Landscape 36x24', 49.99, 'Canvas Landscape', 'canvas-painting', 'white', 100);
+
+
+
+INSERT INTO Items (item_name, price, design_name, item_type, base_color, inventory_count) VALUES
+('Phone Case iPhone 15', 24.99, 'Phone Case', 'phone-case', 'clear', 100),
+('Phone Case iPhone 14', 24.99, 'Phone Case', 'phone-case', 'clear', 100);
+
+INSERT INTO Items (item_name, price, design_name, item_type, base_color, inventory_count) VALUES
+('Cotton Sweatshirt', 39.99, 'Sweatshirt', 'sweatshirt', 'black', 100),
+('Cotton Sweatshirt', 39.99, 'Sweatshirt', 'sweatshirt', 'grey', 100);
