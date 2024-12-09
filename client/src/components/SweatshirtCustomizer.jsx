@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { CartContext } from './CartContext';
 import blackSweatshirt from '../img/Black Sweatshirt.jpg';
 import greySweatshirt from '../img/Grey Sweatshirt.jpg';
+import ReviewSection from './ReviewSection';
 
 // Mapping of colors to database item_ids
 const SWEATSHIRT_IDS = {
@@ -35,50 +36,53 @@ const SweatshirtCustomizer = () => {
     };
 
     return (
-        <div className="customizer-container">
-            <div className="product-preview">
-                <img src={getDisplayImage()} alt="Sweatshirt Preview" />
-            </div>
-            
-            <div className="customization-options">
-                <div className="option-section">
-                    <h3>Select Color</h3>
-                    <div className="color-options">
-                        <button 
-                            className={`color-btn ${selectedColor === 'black' ? 'selected' : ''}`}
-                            onClick={() => setSelectedColor('black')}
-                        >
-                            Black
-                        </button>
-                        <button 
-                            className={`color-btn ${selectedColor === 'grey' ? 'selected' : ''}`}
-                            onClick={() => setSelectedColor('grey')}
-                        >
-                            Grey
-                        </button>
-                    </div>
+        <>
+            <div className="customizer-container">
+                <div className="product-preview">
+                    <img src={getDisplayImage()} alt="Sweatshirt Preview" />
                 </div>
-
-                <div className="option-section">
-                    <h3>Select Size</h3>
-                    <div className="size-options">
-                        {['S', 'M', 'L', 'XL', 'XXL'].map(size => (
-                            <button
-                                key={size}
-                                className={`size-btn ${selectedSize === size ? 'selected' : ''}`}
-                                onClick={() => setSelectedSize(size)}
+                
+                <div className="customization-options">
+                    <div className="option-section">
+                        <h3>Select Color</h3>
+                        <div className="color-options">
+                            <button 
+                                className={`color-btn ${selectedColor === 'black' ? 'selected' : ''}`}
+                                onClick={() => setSelectedColor('black')}
                             >
-                                {size}
+                                Black
                             </button>
-                        ))}
+                            <button 
+                                className={`color-btn ${selectedColor === 'grey' ? 'selected' : ''}`}
+                                onClick={() => setSelectedColor('grey')}
+                            >
+                                Grey
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <button className="add-to-cart-btn" onClick={handleAddToCart}>
-                    Add to Cart - ${SWEATSHIRT_PRICE}
-                </button>
+                    <div className="option-section">
+                        <h3>Select Size</h3>
+                        <div className="size-options">
+                            {['S', 'M', 'L', 'XL', 'XXL'].map(size => (
+                                <button
+                                    key={size}
+                                    className={`size-btn ${selectedSize === size ? 'selected' : ''}`}
+                                    onClick={() => setSelectedSize(size)}
+                                >
+                                    {size}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <button className="add-to-cart-btn" onClick={handleAddToCart}>
+                        Add to Cart - ${SWEATSHIRT_PRICE}
+                    </button>
+                </div>
             </div>
-        </div>
+            <ReviewSection itemId={SWEATSHIRT_IDS[selectedColor]} />
+        </>
     );
 };
 

@@ -3,6 +3,7 @@ import { CartContext } from './CartContext';
 import canvas1 from '../img/Canvas Design 1.jpg';
 import canvas2 from '../img/Canvas Design 2.jpg';
 import canvas3 from '../img/Canvas Design 3.jpg';
+import ReviewSection from './ReviewSection';
 
 // Mapping of sizes to database item_ids
 const CANVAS_IDS = {
@@ -49,59 +50,62 @@ const CanvasCustomizer = () => {
     };
 
     return (
-        <div className="customizer-container">
-            <div className="product-preview">
-                <img src={getDisplayImage()} alt="Canvas Preview" />
-            </div>
-            
-            <div className="customization-options">
-                <div className="option-section">
-                    <h3>Select Design</h3>
-                    <div className="design-options">
-                        <button 
-                            className={`design-btn ${selectedDesign === '1' ? 'selected' : ''}`}
-                            onClick={() => setSelectedDesign('1')}
-                        >
-                            Design 1
-                        </button>
-                        <button 
-                            className={`design-btn ${selectedDesign === '2' ? 'selected' : ''}`}
-                            onClick={() => setSelectedDesign('2')}
-                        >
-                            Design 2
-                        </button>
-                        <button 
-                            className={`design-btn ${selectedDesign === '3' ? 'selected' : ''}`}
-                            onClick={() => setSelectedDesign('3')}
-                        >
-                            Design 3
-                        </button>
-                    </div>
+        <>
+            <div className="customizer-container">
+                <div className="product-preview">
+                    <img src={getDisplayImage()} alt="Canvas Preview" />
                 </div>
-
-                <div className="option-section">
-                    <h3>Select Size</h3>
-                    <div className="size-options">
-                        <button
-                            className={`size-btn ${selectedSize === '24x18' ? 'selected' : ''}`}
-                            onClick={() => setSelectedSize('24x18')}
-                        >
-                            24" x 18" - $34.99
-                        </button>
-                        <button
-                            className={`size-btn ${selectedSize === '36x24' ? 'selected' : ''}`}
-                            onClick={() => setSelectedSize('36x24')}
-                        >
-                            36" x 24" - $49.99
-                        </button>
+                
+                <div className="customization-options">
+                    <div className="option-section">
+                        <h3>Select Design</h3>
+                        <div className="design-options">
+                            <button 
+                                className={`design-btn ${selectedDesign === '1' ? 'selected' : ''}`}
+                                onClick={() => setSelectedDesign('1')}
+                            >
+                                Design 1
+                            </button>
+                            <button 
+                                className={`design-btn ${selectedDesign === '2' ? 'selected' : ''}`}
+                                onClick={() => setSelectedDesign('2')}
+                            >
+                                Design 2
+                            </button>
+                            <button 
+                                className={`design-btn ${selectedDesign === '3' ? 'selected' : ''}`}
+                                onClick={() => setSelectedDesign('3')}
+                            >
+                                Design 3
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <button className="add-to-cart-btn" onClick={handleAddToCart}>
-                    Add to Cart - ${CANVAS_PRICES[selectedSize]}
-                </button>
+                    <div className="option-section">
+                        <h3>Select Size</h3>
+                        <div className="size-options">
+                            <button
+                                className={`size-btn ${selectedSize === '24x18' ? 'selected' : ''}`}
+                                onClick={() => setSelectedSize('24x18')}
+                            >
+                                24" x 18" - $34.99
+                            </button>
+                            <button
+                                className={`size-btn ${selectedSize === '36x24' ? 'selected' : ''}`}
+                                onClick={() => setSelectedSize('36x24')}
+                            >
+                                36" x 24" - $49.99
+                            </button>
+                        </div>
+                    </div>
+
+                    <button className="add-to-cart-btn" onClick={handleAddToCart}>
+                        Add to Cart - ${CANVAS_PRICES[selectedSize]}
+                    </button>
+                </div>
             </div>
-        </div>
+            <ReviewSection itemId={CANVAS_IDS[selectedSize]} />
+        </>
     );
 };
 

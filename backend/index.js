@@ -10,6 +10,11 @@ app.use(cors({
 }))
 app.use(express.json())
 
+app.get("/api/test", (req, res) => {
+    console.log("Test endpoint hit!");
+    res.json({ message: "Backend is working!" });
+});
+
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
@@ -231,6 +236,109 @@ app.post("/api/orders/create", (req, res) => {
             });
         });
     }
+});
+
+// Check if user can review a product (KEEP THIS FIRST in route order)
+app.get("/api/reviews/can-review", (req, res) => {
+    const { userId, itemId } = req.query;
+
+    const query = `
+        SELECT DISTINCT o.order_id
+        FROM Orders o
+        JOIN Customers c ON o.customer_id = c.customer_id
+        JOIN Order_Items oi ON o.order_id = oi.order_id
+        LEFT JOIN Reviews r ON (
+            r.customer_id = c.customer_id AND 
+            r.item_id = oi.item_id
+        )
+        WHERE c.user_id = ? 
+        AND oi.item_id = ?
+        AND r.review_id IS NULL
+        LIMIT 1
+    `;
+
+    db.query(query, [userId, itemId], (err, results) => {
+        if (err) {
+            return res.status(500).json({ message: "Error checking review eligibility" });
+        }
+
+        res.json({
+            canReview: results.length > 0,
+            orderId: results.length > 0 ? results[0].order_id : null
+        });
+    });
+});
+
+// Get reviews for a specific product
+app.get("/api/reviews/:itemId", (req, res) => {
+    const itemId = req.params.itemId;
+    const query = `
+        SELECT r.review_id, r.rating, r.review_message, r.review_date, 
+               a.username
+        FROM Reviews r
+        JOIN Customers c ON r.customer_id = c.customer_id
+        JOIN Accounts a ON c.user_id = a.user_id
+        WHERE r.item_id = ?
+        ORDER BY r.review_date DESC
+        LIMIT 10
+    `;
+    
+    db.query(query, [itemId], (err, results) => {
+        if (err) {
+            console.error("Error getting reviews:", err);
+            return res.status(500).json({ message: "Error getting reviews" });
+        }
+        res.json(results);
+    });
+});
+
+// Get average rating and count for a product
+app.get("/api/reviews/stats/:itemId", (req, res) => {
+    const itemId = req.params.itemId;
+    const query = `
+        SELECT 
+            AVG(rating) as average_rating,
+            COUNT(*) as review_count
+        FROM Reviews
+        WHERE item_id = ?
+    `;
+    
+    db.query(query, [itemId], (err, results) => {
+        if (err) {
+            console.error("Error getting review stats:", err);
+            return res.status(500).json({ message: "Error getting review stats" });
+        }
+        res.json(results[0]);
+    });
+});
+
+// Submit a new review
+app.post("/api/reviews/submit", (req, res) => {
+    const { userId, itemId, orderId, rating, message } = req.body;
+    
+    // First get customer_id
+    db.query("SELECT customer_id FROM Customers WHERE user_id = ?", [userId], (err, results) => {
+        if (err || results.length === 0) {
+            console.error("Error getting customer_id:", err);
+            return res.status(500).json({ message: "Error submitting review" });
+        }
+        
+        const customerId = results[0].customer_id;
+        const query = `
+            INSERT INTO Reviews (
+                customer_id, item_id, order_id, rating, 
+                review_message, review_date
+            ) VALUES (?, ?, ?, ?, ?, CURDATE())
+        `;
+        
+        db.query(query, [customerId, itemId, orderId, rating, message], (err) => {
+            if (err) {
+                console.error("Error submitting review:", err);
+                return res.status(500).json({ message: "Error submitting review" });
+            }
+            res.json({ message: "Review submitted successfully" });
+        });
+    });
 });
 
 app.listen(8800, () => {
