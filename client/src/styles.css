@@ -402,7 +402,7 @@ footer {
 
 .cart-summary button {
     font-weight: bold;
-    background-color: #aab39c;
+    background-color: #539f57;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -412,7 +412,7 @@ footer {
 }
 
 .cart-summary button:hover {
-    background-color: #45a049;
+    background-color: #3dbb43;
 }
 
 /* Cart button 3D style */
